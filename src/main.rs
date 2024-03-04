@@ -4,7 +4,7 @@ use reqwest::Error;
 async fn main() -> Result<(), Error> {
     println!("{:-^50}","WEATHER CLI");
 
-    const API_KEY: &str = "akyihGJbY7v0WIauhZPUFH6qG0BXE2dZ";
+    const API_KEY: &str = "YOUR_API_KEY";
 
     let url = format!("http://dataservice.accuweather.com/forecasts/v1/minute?q=-23.6814347,-46.9249433&apikey={}&language=pt-br", API_KEY);
 
