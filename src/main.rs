@@ -1,31 +1,16 @@
-use std::io;
-
 fn main() {
-    println!("{:-^40}", "INÍCIO");
+    let _input_string = "A 2 B 4 C 6 D 8 E 10";
+    let input_number = "1 2 3 4 5 6 7 8 9 10";
 
-    let mut name = String::new();
-    println!("Digite seu nome:");
+    let result: Vec<i32> = input_number
+        .split(' ')
+        .map(|s| {
+            let converted_number = s.parse::<i32>().unwrap();
+            let doubled_number = converted_number * 2;
 
-    io::stdin()
-        .read_line(&mut name)
-        .expect("Erro ao ler nome");
-
-    let nums: Vec<&str> = name
-        .split(",")
-        .map(|c| c.trim())
+            doubled_number
+        })
         .collect();
 
-    let joined_name = nums.join("");
-
-    let name_length = joined_name.trim().chars().count();
-    let name_uppercase = joined_name.trim().to_uppercase();
-    let name_without_r_letter = joined_name.trim().replace("r", " ");
-
-    println!("Olá, {}, seja bem vindo(a) ", joined_name);
-    println!("Seu nome tem {} letras", name_length);
-    println!("Seu nome maiúsculo é {}", name_uppercase);
-    println!("Seu sem a letra R é {}", name_without_r_letter);
-    println!("Seu nome tem {:?} palavras", nums);
-
-    println!("{:-^40}", "TÉRMINO");
+    println!("{:?}", result);
 }
